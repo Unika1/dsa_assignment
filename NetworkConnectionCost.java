@@ -1,14 +1,9 @@
 /* Question No.3 (a):
 Determine the minimum total cost to connect all devices in the network.
 
-Algorithm Explanation:
-1. Treat each device as a node in a graph. Devices can either be connected via direct connections or by installing communication modules.
-2. Introduce a virtual node representing the central communication hub. Connect this virtual node to all devices with edges equal to the module installation cost.
-3. Combine all the given direct connections and the virtual edges into a single list.
-4. Sort all edges based on their cost in ascending order.
-5. Apply Kruskal's algorithm to find the Minimum Spanning Tree (MST), ensuring all devices are connected with the minimum total cost.
-6. Use the Union-Find data structure to efficiently detect cycles during MST formation.
-7. Stop adding edges when all devices are connected, i.e., when we have n edges in total (including virtual edges).
+This algorithm is designed to calculate the minimum total cost required to connect all devices in a network, where each device can be connected either through direct connections or by installing modules at a cost. The solution uses Kruskal's algorithm for finding the Minimum Spanning Tree (MST), which ensures that the total cost of connecting all devices is minimized. First, the algorithm initializes an array to store the installation costs of modules for each device and a set of direct connections between devices with their associated costs. It then introduces a virtual node that represents the option of installing a module to connect each device, and connects this virtual node to each device with edges representing the module installation costs. After adding all edges (both direct connections and virtual node connections), the edges are sorted by their cost in ascending order. Kruskal's algorithm is applied using the Union-Find (Disjoint Set) data structure, which efficiently tracks and merges sets of connected devices, ensuring that no cycles are formed during the process. The algorithm selects the cheapest edges and keeps adding them to the MST until all devices are connected. The result is the minimum total cost to connect all devices, which is returned and displayed.
+
+
 */
 
 import java.util.*;

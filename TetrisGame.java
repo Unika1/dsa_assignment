@@ -1,28 +1,30 @@
 /* Question No.3 (b):
- * Tetris Game Algorithm Explanation:
- * 
- * 1. Initialization:
- *    - Create an empty queue to store the sequence of upcoming blocks.
- *    - Create an empty list to represent the placed blocks on the board.
- *    - Initialize an empty game board.
- *    - Generate a random block and enqueue it.
- * 
- * 2. Game Loop:
- *    - Check if the game is over (top row is filled).
- *    - Display the current game state (board and next block preview).
- *    - Handle user inputs:
- *      - Left button: Move block left if possible.
- *      - Right button: Move block right if possible.
- *      - Rotate button: Rotate the block if possible.
- *    - Move the block downward if no collision occurs.
- *    - If a collision happens:
- *      - Add the block to placedBlocks list.
- *      - Check and remove completed rows.
- *      - Generate a new random block and enqueue it.
- *    - If no new block can be placed, the game is over.
- * 
- * 3. Game Over:
- *    - Display a message and final score.
+ * Game Initialization
+
+A 2D array (board) represents the game grid.
+The game starts with an empty board and a queue of upcoming blocks.
+A Timer triggers the automatic downward movement of the current block every 500 milliseconds.
+Block Generation and Movement
+
+New blocks are randomly selected and placed at the top of the board using generateNewBlock().
+Blocks move down automatically with actionPerformed().
+The player can move blocks left or right (moveBlock()) and rotate them (rotateBlock()).
+isValidMove() ensures blocks stay within boundaries and don’t overlap.
+Placing Blocks and Clearing Rows
+
+When a block can’t move down, it is placed on the board using placeBlock().
+clearRows() checks if any row is fully filled and removes it, shifting the above rows down and increasing the score.
+Game Over Condition
+
+If a new block cannot be placed at the top, the game ends (gameOver = true).
+The screen displays “Game Over” along with the final score.
+Rendering the Game
+
+paintComponent() updates the board visually, drawing placed blocks in blue and the falling block in red.
+The user interacts using the keyboard (KeyAdapter), controlling block movement and rotation.
+Game Loop Execution
+
+The main method initializes the game window, starts the timer, and keeps the game running until the player loses.
  */
 
 // Tetris Game Implementation in Java

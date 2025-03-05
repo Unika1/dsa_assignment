@@ -1,12 +1,5 @@
 /* Question no.2(a):
-The program starts by creating a Scanner object to get input from the user. 
-It asks the user to type in the ratings of employees as a comma-separated list.
-The program reads this input as a single line of text.
-It then splits the text into individual parts using the comma as a separator.
-Each part is cleaned (removes spaces) and converted into a number, creating an array of employee ratings.
-After this, the program uses a method called calculateMinimumRewards to figure out how many rewards are needed. 
-This method takes the ratings as input, calculates the result, and returns the minimum number of rewards required.
-Finally, the result is displayed to the user, and the program closes the Scanner to release resources (this is just a good coding habit). */
+The algorithm calculates the minimum number of rewards needed for employees based on their ratings, ensuring that employees with higher ratings receive more rewards than their neighbors. It starts by initializing an array where each employee is assigned one reward. Then, the algorithm adjusts the rewards from left to right, increasing the reward of an employee if their rating is higher than the one before them. Next, it adjusts the rewards from right to left, ensuring that an employee with a higher rating than the one to their right receives more rewards, taking the maximum of their current reward or the right neighbor's reward plus one. Finally, the total rewards are calculated by summing all the rewards assigned to the employees, ensuring the minimum rewards are given while maintaining the rule that employees with higher ratings must get more rewards than their neighbors.*/
 import java.util.Scanner;
 
 public class MinRewards {
